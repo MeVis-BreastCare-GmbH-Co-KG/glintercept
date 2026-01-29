@@ -27,3 +27,16 @@
 *.exe
 *.out
 *.app
+
+# Project specific
+*.idb
+*.ilk
+*.recipe
+*.log
+*.pdb
+*.tlog
+*.lastbuildstate
+*.asm
+*.user
+*.vsidx
+.vs

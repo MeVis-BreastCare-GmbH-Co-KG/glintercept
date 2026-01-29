@@ -1,5 +1,10 @@
 # ![](./Docs/Images/GLicon.png?raw=true) GLIntercept
 
+## About this fork
+This fork includes minor modifications useful to examine also performance issues.
+The LogFilenames include the ProcessID.
+The log entries are extended with timestamps.
+
 ## About
 GLIntercept is a OpenGL function call interceptor for Windows that will intercept and log **all** [OpenGL](http://www.opengl.org) calls. 
 

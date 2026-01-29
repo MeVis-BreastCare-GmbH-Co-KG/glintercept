@@ -7,6 +7,7 @@
 #include "InterceptLogText.h"
 #include "GLDriver.h"
 #include <time.h>
+#include <process.h>
 
 USING_ERRORLOG
 
@@ -24,6 +25,11 @@ imageRenderCallLog(configData.imageRenderCallStateLog),
 functionTimerEnabled(configData.timerLogEnabled),
 functionTimerCutOff(configData.timerLogCutOff)
 {
+  int pid = _getpid();
+  char buffer[256];
+  snprintf(buffer, sizeof(buffer), "%s_%d.log", fileName.c_str(), pid);
+
+  logFileName = std::string(buffer);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -86,6 +92,11 @@ void InterceptLogText::LogFunctionPre(const FunctionData *funcData,uint index, c
 
   //Start the function on a newline
   fprintf(logFile,"\n");
+
+  //Write the timestamp
+  SYSTEMTIME st;
+  GetLocalTime(&st);
+  fprintf(logFile, "%02d:%02d:%02d.%03d:", st.wHour, st.wMinute, st.wSecond, st.wMilliseconds);
 
   //Loop for the function call depth to flag sub-function calls
   for(uint i=0;i<glDriver.GetFunctionCallDepth();i++)

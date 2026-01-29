@@ -5,6 +5,17 @@ This fork includes minor modifications useful to examine also performance issues
 The LogFilenames include the ProcessID.
 The log entries are extended with timestamps.
 
+### How to use
+* Build solution Src/Workspaces/GLIntercept.sln
+* Copy the following files/folders to MeVisLab binary folder, e.g. C:\Program Files\MammoScape\FE\MeVisLab\MMBR\Imaging\Packages\MeVisLab\IDE\bin
+** Bin/MainLibx64/OpenGL32.dll
+** Bin/MainLib/gliConfig.ini
+** Bin/GLFunctions
+* Run MeVisLab, perform the actions to trace.
+** Traces in gliInterceptLog.txt_<PID>.log in bin folder
+** Errors in gliLog.txt in bin folder
+
+
 ## About
 GLIntercept is a OpenGL function call interceptor for Windows that will intercept and log **all** [OpenGL](http://www.opengl.org) calls. 
 
